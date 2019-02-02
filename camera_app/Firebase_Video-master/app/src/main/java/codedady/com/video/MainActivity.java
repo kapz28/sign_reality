@@ -18,6 +18,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.firebase.functions.FirebaseFunctions;
+
 
 import java.io.File;
 
@@ -25,14 +27,19 @@ public class MainActivity extends AppCompatActivity {
     private Uri videouri;
     private static final int REQUEST_CODE = 101;
     private StorageReference videoref;
+    private FirebaseFunctions m_functions;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReferenceFromUrl("gs://signreality-635c2.appspot.com");
         videoref =storageRef.child("/videos" + "/userIntro.3gp");
+        m_functions.
 
 
 
